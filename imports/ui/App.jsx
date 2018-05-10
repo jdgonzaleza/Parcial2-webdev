@@ -2,6 +2,7 @@ import React from "react";
 import { Meteor } from "meteor/meteor";
 import * as d3 from "d3";
 import Graph from "./Graph";
+import AccountsUIWrapper from "./AcountsUIWrapper";
 
 export default class App extends React.Component {
   constructor() {
@@ -18,11 +19,12 @@ export default class App extends React.Component {
         console.log(result);
         this.setState({ data: result });
       });
-    }, 1000);
+    }, 10000);
   }
   render() {
     return (
       <div>
+        <AccountsUIWrapper />
         <h1>Hola Mundo</h1>
         <small>Juan Diego González</small>
         <Graph data={this.state.data} />

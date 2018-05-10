@@ -20,7 +20,7 @@ export default class Graph extends React.Component {
 
     this.x = d3.scaleBand()
       .rangeRound([0, this.width - this.margin.left - this.margin.right])
-      .paddingInner(0.05)
+      .paddingInner(0.09)
       .align(0.1);
 
     this.y = d3.scaleLinear()
@@ -103,25 +103,12 @@ export default class Graph extends React.Component {
       .value((d, key) => {
         return key < d.values.length ? d.values[key].distance : 0;
       })(nestedBuses);
-    // const svg = d3.select(this.svg),
-    //   height = svg.attr("height"),
-    //   width = svg.attr("width"),
-    //   margin = { top: 20, right: 50, bottom: 30, left: 40 },
-    //   g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // var x = d3.scaleBand()
-    //   .rangeRound([0, width - margin.left - margin.right])
-    //   .paddingInner(0.05)
-    //   .align(0.1);
-
-    // var y = d3.scaleLinear()
-    //   .rangeRound([height - margin.top - margin.bottom, 0]);
-
-    // var z = d3.scaleSequential(d3.interpolateBlues);
     this.x.domain(nestedBuses.map(function(d) { return d.key; }));
     this.y.domain([0, d3.max(nestedBuses, function(d) { return d.total; })]).nice();
     this.z.domain([0, maxNumBuses]);
-    this.g.selectAll(".rect").remove().transition().duration(1000);
+
+    this.g.selectAll("rect").remove().transition().duration(10000);
 
     this.g.append("g")
       .selectAll("g")
@@ -145,10 +132,10 @@ export default class Graph extends React.Component {
       .transition().duration(1000)
       .call(d3.axisLeft(this.y).ticks(null, "s"));
 
-    this.g.select(".legend").remove();
+    this.g.select(".teOdioElonMusk").remove();
 
     var legend = this.g.append("g")
-      .attr("class", "legend")
+      .attr("class", "teOdioElonMusk")
       .attr("font-family", "sans-serif")
       .attr("font-size", 10)
       .attr("text-anchor", "end")
@@ -181,8 +168,8 @@ export default class Graph extends React.Component {
       <div>
         <div className="elChart">
           <svg
-            width="900"
-            height="500"
+            width="1000"
+            height="650"
             ref={(svg) => this.svg = svg}></svg>
         </div>
       </div>
