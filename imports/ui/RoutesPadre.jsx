@@ -28,10 +28,14 @@ class RoutesPadre extends React.Component {
     console.log(this.state.clicked, "entre1");
 
   }
-  addComment(theMessage) {
+  addComment(theMessage, elNuevo) {
     console.log(theMessage);
+    console.log(elNuevo);
     console.log(this.state.clicked.title);
     Meteor.call("routes.insertComment", theMessage, this.state.clicked.title);
+    this.setState({
+      clicked: elNuevo
+    });
   }
 
   render() {
@@ -45,9 +49,7 @@ class RoutesPadre extends React.Component {
             </div>
             {this.state.clicked.isEmpty ? "" :
               <div className="col-md-6 elDetail">
-
                 <RouteDetail detail={this.state.clicked} addComment={this.addComment.bind(this)} />
-
               </div>
             }
           </div>

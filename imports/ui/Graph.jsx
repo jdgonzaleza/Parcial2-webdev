@@ -155,7 +155,7 @@ export default class Graph extends React.Component {
       .attr("x", this.width - 25)
       .attr("y", 9.5)
       .attr("dy", "0.32em")
-      .text(function(d) { console.log(d); return d; });
+      .text(function(d) { return d; });
     return this.svg.node();
   }
 

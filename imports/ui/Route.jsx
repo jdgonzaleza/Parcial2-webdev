@@ -20,7 +20,8 @@ export default class Route extends React.Component {
     let item = {
       tag: this.props.tag,
       title: this.props.title,
-      comment: this.props.list
+      comment: this.props.list,
+      key: this.props.indice
     };
     console.log(item);
     this.props.clickMe(item);

@@ -1,3 +1,4 @@
+
 import React from "react";
 import Comment from "./Comment";
 export default class RoutesDetail extends React.Component {
@@ -7,6 +8,7 @@ export default class RoutesDetail extends React.Component {
     this.state = {
 
     };
+    console.log(this.props.detail);
   }
 
   componentDidUpdate() {
@@ -34,7 +36,15 @@ export default class RoutesDetail extends React.Component {
         message: text.trim(),
         name: Meteor.user().username
       };
-      this.props.addComment(item);
+
+      let thiscomments = this.props.detail.comment.push(item);
+      console.log(thiscomments);
+      let elNuevo = {
+        tag: this.props.detail.tag,
+        title: this.props.detail.title,
+        comments: thiscomments
+      };
+      this.props.addComment(item, elNuevo);
       document.getElementById("comment").value = "";
     }
 
