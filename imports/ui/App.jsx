@@ -28,7 +28,7 @@ export default class App extends React.Component {
         <AccountsUIWrapper />
         <div className="elPeque">
           <h1>San Fransico Buses Distance</h1>
-          <h4>In order to comment and share your experience in the bus system you need to login.</h4>
+          <h4>In order to share your experience inside SF bus system, please Login</h4>
           <small className="elPeque">Juan Diego González</small>
         </div>
         <div className="elGrafico">

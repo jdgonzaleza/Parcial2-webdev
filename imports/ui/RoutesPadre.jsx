@@ -60,6 +60,6 @@ class RoutesPadre extends React.Component {
 export default withTracker(() => {
   Meteor.subscribe("routes");
   return {
-    routesList: Routes.find({}).fetch()
+    routesList: Routes.find({}, { sort: { title: 1 } }).fetch()
   };
 })(RoutesPadre);
