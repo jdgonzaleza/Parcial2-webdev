@@ -108,7 +108,7 @@ export default class Graph extends React.Component {
     this.y.domain([0, d3.max(nestedBuses, function(d) { return d.total; })]).nice();
     this.z.domain([0, maxNumBuses]);
 
-    this.g.selectAll("rect").remove().transition().duration(10000);
+    this.g.selectAll("rect").remove().transition().duration(500);
 
     this.g.append("g")
       .selectAll("g")
@@ -155,15 +155,10 @@ export default class Graph extends React.Component {
       .attr("y", 9.5)
       .attr("dy", "0.32em")
       .text(function(d) { return d; });
-
     return this.svg.node();
-
-
-
   }
 
   render() {
-
     return (
       <div>
         <div className="elChart">
