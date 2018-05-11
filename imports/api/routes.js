@@ -34,12 +34,23 @@ Meteor.methods({
           comments: comment
         }
       }
+
     );
+    let res = Routes.find({ title: titleT });
+    return res;
 
   },
   "routes.findByTitle"(titleT) {
     return Routes.find({ title: titleT });
+  },
+
+  "routes.routeConfig"(route) {
+    return fetch("http://webservices.nextbus.com/service/publicJSONFeed?command=routeConfig&a=sf-muni&r=" + route)
+      .then((res) => {
+        return res.json();
+      }).then((data) => { return data; });
   }
+
 
 
 });

@@ -49,7 +49,6 @@ export default class Graph extends React.Component {
   }
   // componentDidUpdate() {
   //   
-  //   console.log(this.props.data);
 
   //   this.update(this.props.data);
   // }
@@ -89,12 +88,9 @@ export default class Graph extends React.Component {
   update(props) {
     if(!props.vehicle || props.vehicle.length === 0) return;
     this.svg = d3.select(this.svg);
-    console.log("update");
     var nestedBuses = d3.nest().key((d) => d.routeTag).entries(props.vehicle);
-    console.log(nestedBuses);
     this.computeDistances(nestedBuses);
     var maxNumBuses = d3.max(nestedBuses.map((d) => d.values.length));
-    console.log(maxNumBuses);
 
     var keys = d3.range(maxNumBuses);
 
