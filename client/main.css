@@ -1,1 +1,51 @@
 /* CSS declarations go here */
+.vertical-menu {
+  width: 400px;
+  height: 300;
+  max-height: 500px;
+  overflow-x: hidden
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+h1{
+  text-align: center;
+}
+.elPeque{
+  text-align: center;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.elGrafico{
+  text-align: center;
+  padding-bottom: 100px;
+  padding-top: 30px;
+
+}
+.elpadre{
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 40px;
+}
+.laListicaH1{
+  font-size: 29px;
+  padding-right: 170px;
+  padding-bottom: 10px;
+}
+
+

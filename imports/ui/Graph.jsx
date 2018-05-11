@@ -119,6 +119,7 @@ export default class Graph extends React.Component {
       .selectAll("rect")
       .data(function(d) { return d; })
       .enter().append("rect")
+      .attr("font-size", 5)
       .attr("x", (d) => { return this.x(d.data.key); })
       .attr("y", (d) => { return this.y(d[1]); })
       .attr("height", (d) => { return this.y(d[0]) - this.y(d[1]); })
@@ -151,10 +152,10 @@ export default class Graph extends React.Component {
       .attr("fill", this.z);
 
     legend.append("text")
-      .attr("x", this.width - 24)
+      .attr("x", this.width - 25)
       .attr("y", 9.5)
       .attr("dy", "0.32em")
-      .text(function(d) { return d; });
+      .text(function(d) { console.log(d); return d; });
     return this.svg.node();
   }
 
@@ -164,7 +165,7 @@ export default class Graph extends React.Component {
         <div className="elChart">
           <svg
             width="1000"
-            height="650"
+            height="500"
             ref={(svg) => this.svg = svg}></svg>
         </div>
       </div>
