@@ -12,14 +12,14 @@ class RoutesPadre extends React.Component {
     };
   }
   componentDidMount() {
-    Meteor.call("routes.listApi", (err, result) => {
-      if(err) throw err;
-      console.log(result.route);
-      for(let r of result.route) {
-        console.log(r);
-        Meteor.call("routes.insert", r);
-      }
-    });
+    // Meteor.call("routes.listApi", (err, result) => {
+    //   if(err) throw err;
+    //   console.log(result.route);
+    //   for(let r of result.route) {
+    //     console.log(r);
+    //     Meteor.call("routes.insert", r);
+    //   }
+    // });
   }
   onClick(elQueEs) {
     this.setState({
