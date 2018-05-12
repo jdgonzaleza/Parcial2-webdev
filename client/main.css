@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 .vertical-menu {
-  width: 400px;
-  height: 300;
+  width: 300px;
+  height: 260px;
   max-height: 500px;
   overflow-x: hidden
 }
@@ -12,6 +12,7 @@
   display: block;
   padding: 12px;
   text-decoration: none;
+  cursor: pointer;
 
 }
 
@@ -44,8 +45,15 @@ h1{
 }
 .laListicaH1{
   font-size: 29px;
-  padding-right: 170px;
+  padding-right: 270px;
   padding-bottom: 10px;
+}
+.elRowchevere{
+  padding-bottom: 200px;
+}
+
+.cardB{
+  width: 300px;
 }
 
 

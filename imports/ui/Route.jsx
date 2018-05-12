@@ -29,7 +29,7 @@ export default class Route extends React.Component {
   render() {
     return (
       <div>
-        <a href="#" onClick={this.handleClick.bind(this)}>{this.props.title + " ( " + this.props.tag + " )"}</a>
+        <a onClick={this.handleClick.bind(this)}>{this.props.title + " ( " + this.props.tag + " )"}</a>
       </div>
     );
   }

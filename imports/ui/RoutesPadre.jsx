@@ -61,18 +61,19 @@ class RoutesPadre extends React.Component {
     return (
       <div>
 
-        <div className="row">
+        <div className="row elRowchevere">
           <div className="col-md-6 laLista">
             <RoutesList list={this.props.routesList} click={this.onClick.bind(this)} />
           </div>
           {this.state.clicked.isEmpty ? "" :
             <div className="col-md-6 elDetail">
-              <RouteDetail detail={this.state.clicked} addComment={this.addComment.bind(this)} />
+              <RouteDetail detail={this.state.clicked} stops={this.state.stops}
+                addComment={this.addComment.bind(this)} />
             </div>
           }
-          <div className="elMapa">
-            <MapContainer elMensaje={"hola"} markers={this.state.stops} />
-          </div>
+        </div>
+        <div className="elMapa">
+          <MapContainer elMensaje={"hola"} markers={this.state.stops} />
         </div>
 
       </div>

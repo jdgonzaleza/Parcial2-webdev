@@ -55,6 +55,7 @@ export default class Graph extends React.Component {
   componentWillUpdate(newProps) {
     this.update(newProps.data);
   }
+
   computeDistances(nestedBuses) {
     for(let route of nestedBuses) {
       route.total = 0;
@@ -65,7 +66,7 @@ export default class Graph extends React.Component {
         route.total += route.values[i].distance;
       }
     }
-    return nestedBuses.sort(function(a, b) { return b.total - a.total; });
+    return nestedBuses.sort(function(a, b) { return b.distance - a.distance; });
   }
   getDistance(lat1, lon1, lat2, lon2) {
     function deg2rad(deg) {
@@ -159,12 +160,13 @@ export default class Graph extends React.Component {
     return (
       <div>
         <div className="elChart">
+          <h5>This stack chart represents the distance difference between the buses in each route </h5>
           <svg
             width="1000"
             height="500"
             ref={(svg) => this.svg = svg}></svg>
         </div>
-      </div>
+      </div >
     );
   }
 }

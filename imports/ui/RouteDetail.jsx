@@ -53,14 +53,48 @@ export default class RoutesDetail extends React.Component {
 
   }
   renderThis() {
-    if(Meteor.user() !== null) {
-      return (
+    console.log(this.props.stops);
+    return (
 
+      <div>
+        <h1>Comments</h1>
+        <div className="card cardB">
+          <h2> <b>Route:</b></h2>
+          <h3>{this.props.detail.title + " ( " + this.props.detail.tag + " )"}</h3>
+
+          <div>
+            <h4>Stops:</h4>
+            {this.props.stops.map((s, i) => {
+              <p key={i}>{s.name + "-->"}</p>
+            })}
+          </div>
+          <div className="card-body">
+            <h4>Comments:</h4>
+            {this.props.detail.comment !== undefined ? (this.props.detail.comment.map((m, i) => <Comment key={i} message={m.message} name={m.name} />)) : ""}
+          </div>
+          <div className="form-group">
+            <label for="comment"><b>Comment:</b></label>
+            <textarea type="text" className="form-control" rows="3" cols="3" id="comment"></textarea>
+          </div>
+          <button onClick={this.addComment.bind(this)}>Add!</button>
+
+        </div>
+
+
+      </div>
+
+    );
+  }
+
+
+  render() {
+    return (
+      <div>
         <div>
           <h1>Comments</h1>
           <div className="card">
             <h2> <b>Route:</b></h2>
-            <h3>{this.props.detail.title + " ( " + this.props.detail.tag + " )"}</h3>
+            <h3>{this.props.detail.title === undefined ? "" : (this.props.detail.title + " ( " + this.props.detail.tag + " )")}</h3>
             <div className="card">
               {this.props.detail.comment !== undefined ? (this.props.detail.comment.map((m, i) => <Comment key={i} message={m.message} name={m.name} />)) : ""}
             </div>
@@ -69,41 +103,8 @@ export default class RoutesDetail extends React.Component {
               <textarea type="text" className="form-control" rows="3" cols="3" id="comment"></textarea>
             </div>
             <button onClick={this.addComment.bind(this)}>Add!</button>
-
           </div>
-
-
         </div>
-
-      );
-    }
-  }
-
-  render() {
-    return (
-      <div>
-
-        {
-          Meteor.user() === null ? "" :
-            <div>
-              <h1>Comments</h1>
-              <div className="card">
-                <h2> <b>Route:</b></h2>
-                <h3>{this.props.detail.title === undefined ? "" : (this.props.detail.title + " ( " + this.props.detail.tag + " )")}</h3>
-                <div className="card">
-                  {this.props.detail.comment !== undefined ? (this.props.detail.comment.map((m, i) => <Comment key={i} message={m.message} name={m.name} />)) : ""}
-                </div>
-                <div className="form-group">
-                  <label for="comment"><b>Comment:</b></label>
-                  <textarea type="text" className="form-control" rows="3" cols="3" id="comment"></textarea>
-                </div>
-                <button onClick={this.addComment.bind(this)}>Add!</button>
-              </div>
-            </div>
-        }
-
-
-
       </div>
 
     );
