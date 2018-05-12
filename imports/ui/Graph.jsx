@@ -65,8 +65,10 @@ export default class Graph extends React.Component {
           +route.values[i].lat, +route.values[i].lon);
         route.total += route.values[i].distance;
       }
+      route.values = route.values.sort((a, b) => { return a.distance - b.distance; });
+
     }
-    return nestedBuses.sort(function(a, b) { return b.distance - a.distance; });
+    return nestedBuses.sort(function(a, b) { return b.total - a.total; });
   }
   getDistance(lat1, lon1, lat2, lon2) {
     function deg2rad(deg) {
