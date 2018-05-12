@@ -2,7 +2,7 @@
 
 This web app was made as the final exam for the Webdev course at La Universidad de Los Andes (Colombia). The technologies used where: Meteor, ReactJs, d3, NextBus API, Google Maps API.
 
-The main purpouse of the web site is to present through a d3 stack chart the distance difference between the buses in an specific route. NextBus API was used in order to obtain data in real time. 
+The main purpouse of the web site is to present through a d3 stack chart the distance difference between the buses in an specific route. NextBus API was used in order to obtain data in real time. https://sfbuses.herokuapp.com/
 
 ## Getting Started
 
