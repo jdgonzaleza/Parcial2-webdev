@@ -12,14 +12,16 @@ export class MapContainer extends React.Component {
 
     return (
       <div>
-        <h1>Google Api Map</h1>
+        <h1>Map with the Bus Stops</h1>
         <small>{this.props.elMensaje}</small>
         <Map google={this.props.google} markers={this.props.markers} />
+        <script src={"https://maps.google.com/maps/api/js?key=" + process.env.GOOGLE_MAPS_API} type="text/javascript"></script>
+
       </div>
     );
   }
 }
 
 export default GoogleApiWrapper({
-  apiKey: process.env.GOOGLE_MAPS_API,
+  apiKey: Meteor.settings.GOOGLE_MAPS_API,
 })(MapContainer);
